@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>文本框字数统计</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="../src/word-count.css">
+	</head>
+	<body>
+	<div class="txt-count-container">
+		<div class="counter"><em>30</em></div>
+		<textarea name="txt" id="txt" cols="30" rows="10" class="txt">万色城是一个创业平台，所有万色城的网商通过加盟，注册一个属于自己的网上商城。推广自己的商城，销售商城的商品创造收益。每个网商拥有一个属于自己的独立域名。万色城是国内唯一全部实行“实名制”的网上商城，每一个网商，以自己真实的姓名、照片和信誉，作为诚信经营的保障。</textarea>
+	</div>
+		<p><input type="button" value="点击提交" class="click"></p>
+		<script type="text/javascript" src="../src/zepto.js"></script>
+		<script type="text/javascript" src="../src/word-count.js"></script>
+		<script>
+			$(function() {
+				$(".click").click(function(){
+					if(!$('.txt').data('overflow') ){
+						alert('ok')
+					}
+				});
+				$('.txt').WordCount({
+					max:200,
+					isOverflowCut: false,
+					overClass:"over-number",
+					num:$(" .counter em"),
+					withButton:".click",
+					minHeight:100,
+					overflowCallback: function() {
+						//this.textBox.addClass('over-number');
+						//$(".counter em").addClass('over-number');
+					},
+					changeCallback: function(num) {
+						//var n = this.max - num;
+						//$(" .counter em").html(n);
+					},
+					passClallback: function() {
+						//this.textBox.removeClass('over-number');
+						//$(".counter em").removeClass('over-number');
+					},
+					isByte: true//字节
+				});
+			});
+		</script>
+	</body>
+</html>
