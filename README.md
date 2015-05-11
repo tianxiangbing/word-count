@@ -77,3 +77,14 @@
     显示计数的结点
 ##minHeight:    number
     文本框的最小高度，因为这里做自适应高度的控制。
+##withButton:   element
+    关联按钮
+##isByte:   boollen
+    是否按字节数来计算，true时：一个汉字作2个单位长度，false时汉字英文不作区分
+#方法回调:
+##overflowCallback:function(){}
+    超出时的回调，this指向当前对象
+##changeCallback:function(n,textbox,max)
+    长度改变时的回调,n为长度,textbox是文本框结点对象,max为最大长度
+##passClallback:function(n,textbox,max)
+    长度通过时的回调,n为长度,textbox是文本框结点对象,max为最大长度
